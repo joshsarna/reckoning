@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     delete '/books/:id' => 'books#destroy'
 
     get '/appointments' => 'appointments#index'
+    post '/appointments' => 'appointments#create'
     get '/appointments/:id' => 'appointments#show'
+    patch '/appointments/:id' => 'appointments#update'
+    delete '/appointments/:id' => 'appointments#destroy'
   end
 end
