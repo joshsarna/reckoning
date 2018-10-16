@@ -8,5 +8,8 @@ Rails.application.routes.draw do
     get '/tasks/:id' => 'tasks#show'
     patch '/tasks/:id' => 'tasks#update'
     delete '/tasks/:id' => 'tasks#destroy'
+
+    get '/books' => 'books#index'
+    get '/books/:id' => 'books#show'
   end
 end
