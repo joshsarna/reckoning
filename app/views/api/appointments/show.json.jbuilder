@@ -1,0 +1,1 @@
+json.partial! 'appointment', appointment: @appointment
