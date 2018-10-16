@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     delete '/tasks/:id' => 'tasks#destroy'
 
     get '/books' => 'books#index'
+    post '/books' => 'books#create'
     get '/books/:id' => 'books#show'
+    patch '/books/:id' => 'books#update'
+    delete '/books/:id' => 'books#destroy'
   end
 end
