@@ -4,10 +4,11 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
+      message: "Reckon",
       tasks: [],
       books: [],
       newBook: {name: "", author: "", dueDate: "", pages: 0},
+      newTask: {name: "", dueDate: ""},
       appointments: []
     };
   },
@@ -33,6 +34,16 @@ var HomePage = {
       axios.post('/api/books', parameters).then(function(response) {
         this.books.push(response.data);
         this.newBook = {name: "", author: "", dueDate: "", pages: 0};
+      }.bind(this));
+    },
+    addTask: function() {
+      var parameters = {
+        name: this.newTask.name,
+        due_date: this.newTask.dueDate
+      };
+      axios.post('/api/tasks', parameters).then(function(response) {
+        this.tasks.push(response.data);
+        this.newTask = {name: "", dueDate: ""};
       }.bind(this));
     }
   },
