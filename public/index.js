@@ -4,10 +4,23 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
+      message: "Welcome to Vue.js!",
+      tasks: [],
+      books: [],
+      appointments: []
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get('/api/tasks').then(function(response) {
+      this.tasks = response.data;
+    }.bind(this));
+    axios.get('/api/books').then(function(response) {
+      this.books = response.data;
+    }.bind(this));
+    axios.get('/api/appointments').then(function(response) {
+      this.appointments = response.data;
+    }.bind(this));
+  },
   methods: {},
   computed: {}
 };
