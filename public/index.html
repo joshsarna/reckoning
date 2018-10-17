@@ -46,7 +46,7 @@
           <div><input type="submit" value="Add Book" v-on:click="addBook"></div>
           <hr>
           <span class="bold">Books</span>
-          <div v-for="book in books">• {{ book.friendly_due_date }}: {{ book.name }} ({{ book.author }}; {{ book.pages }} pages)</div>
+          <div v-for="book in orderBy(books, 'due_date')">• {{ book.friendly_due_date }}: {{ book.name }} ({{ book.author }}; {{ book.pages }} pages)</div>
         </div>
       </div>
     </div>
