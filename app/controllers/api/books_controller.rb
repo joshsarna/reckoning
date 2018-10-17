@@ -10,7 +10,7 @@ class Api::BooksController < ApplicationController
       author: params[:author],
       pages: params[:pages],
       due_date: params[:due_date],
-      completed_status: params[:completed_status]
+      completed_status: false
     )
     @book.save
     render 'show.json.jbuilder'

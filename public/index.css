@@ -1,0 +1,11 @@
+.black-border {
+  box-shadow:inset 0px 0px 0px 2px #000;
+  width: 38px;
+  background: #ffffff;
+  padding: 10px;
+  height: 500px;
+}
+
+.bold {
+  font-weight: bold;
+}

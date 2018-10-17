@@ -7,6 +7,7 @@ var HomePage = {
       message: "Welcome to Vue.js!",
       tasks: [],
       books: [],
+      newBook: {name: "", author: "", dueDate: "", pages: 0},
       appointments: []
     };
   },
@@ -21,7 +22,20 @@ var HomePage = {
       this.appointments = response.data;
     }.bind(this));
   },
-  methods: {},
+  methods: {
+    addBook: function() {
+      var parameters = {
+        name: this.newBook.name,
+        author: this.newBook.author,
+        pages: this.newBook.pages,
+        due_date: this.newBook.dueDate
+      };
+      axios.post('/api/books', parameters).then(function(response) {
+        this.books.push(response.data);
+        this.newBook = {name: "", author: "", dueDate: "", pages: 0};
+      }.bind(this));
+    }
+  },
   computed: {}
 };
 
