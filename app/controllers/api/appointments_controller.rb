@@ -7,8 +7,10 @@ class Api::AppointmentsController < ApplicationController
   def day
     all_appointments = Appointment.all
     @appointments = []
+    seconds_per_day = 24*60*60
+    total_seconds_offset = seconds_per_day * params[:day].to_i
     all_appointments.each do |app|
-      if (app.start_time.strftime('%Y-%m-%e') == Time.now.strftime('%Y-%m-%e'))
+      if (app.start_time.strftime("%Y-%m-%e") == (Time.now + total_seconds_offset).strftime('%Y-%m-%e'))
         @appointments << app
       end
     end

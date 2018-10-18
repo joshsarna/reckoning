@@ -12,6 +12,12 @@ var HomePage = {
       newTask: {name: "", dueDate: ""},
       appointments: [],
       appointments0: [],
+      appointments1: [],
+      appointments2: [],
+      appointments3: [],
+      appointments4: [],
+      appointments5: [],
+      appointments6: [],
       newAppointment: {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""}
     };
   },
@@ -30,6 +36,24 @@ var HomePage = {
     }.bind(this));
     axios.get('/api/appointments/day/0').then(function(response) {
       this.appointments0 = response.data;
+    }.bind(this));
+    axios.get('/api/appointments/day/1').then(function(response) {
+      this.appointments1 = response.data;
+    }.bind(this));
+    axios.get('/api/appointments/day/2').then(function(response) {
+      this.appointments2 = response.data;
+    }.bind(this));
+    axios.get('/api/appointments/day/3').then(function(response) {
+      this.appointments3 = response.data;
+    }.bind(this));
+    axios.get('/api/appointments/day/4').then(function(response) {
+      this.appointments4 = response.data;
+    }.bind(this));
+    axios.get('/api/appointments/day/5').then(function(response) {
+      this.appointments5 = response.data;
+    }.bind(this));
+    axios.get('/api/appointments/day/6').then(function(response) {
+      this.appointments6 = response.data;
     }.bind(this));
   },
   methods: {
@@ -79,7 +103,7 @@ var HomePage = {
         name: this.newAppointment.name,
         location: this.newAppointment.location,
         description: this.newAppointment.description,
-        start_time: this.newAppointment.startDate + "T07:" + this.newAppointment.startTime + ":00.007Z",
+        start_time: this.newAppointment.startDate + "T0" + this.newAppointment.startTime + ":00.007Z",
         end_time: this.newAppointment.endDate + "T0" + this.newAppointment.endTime + ":00.007Z",
       };
       axios.post('/api/appointments', parameters).then(function(response) {
