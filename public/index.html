@@ -43,7 +43,10 @@
           <div><input type="submit" value="Add Task" v-on:click="addTask"></div>
           <hr>
           <span class="bold">Tasks</span>
-          <div v-for="task in orderBy(tasks, 'due_date')">• {{ task.friendly_due_date }}: {{ task.name }}</div>
+          <div v-for="task in orderBy(tasks, 'due_date')" class="room-below">
+            • {{ task.friendly_due_date }}: 
+            {{ task.name }}
+          </div>
         </div>
         <div class="col-3 black-border">
           <span class="bold">Add a New Book</span>
@@ -54,7 +57,12 @@
           <div><input type="submit" value="Add Book" v-on:click="addBook"></div>
           <hr>
           <span class="bold">Books</span>
-          <div v-for="book in orderBy(books, 'due_date')">• {{ book.friendly_due_date }}: {{ book.name }} ({{ book.author }}; {{ book.pages }} pages)</div>
+          <div v-for="book in orderBy(books, 'due_date')" class="room-below">
+            • {{ book.friendly_due_date }}: 
+            {{ book.name }} ({{ book.author }}; 
+            {{ book.pages }} pages) 
+            <span v-bind:value="book.id" class="blue" v-on:click="finishBook(book.id)">Finished</span>
+          </div>
         </div>
       </div>
     </div>

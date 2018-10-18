@@ -45,6 +45,14 @@ var HomePage = {
         this.tasks.push(response.data);
         this.newTask = {name: "", dueDate: ""};
       }.bind(this));
+    },
+    finishBook: function(number) {
+      var id = number;
+      axios.patch('/api/books/' + id, {completed_status: true}).then(function(response) {
+        axios.get('/api/books').then(function(response) {
+          this.books = response.data;
+        }.bind(this));
+      }.bind(this));
     }
   },
   computed: {}

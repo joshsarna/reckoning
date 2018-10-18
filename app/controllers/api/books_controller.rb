@@ -1,6 +1,6 @@
 class Api::BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.where(completed_status: false)
     render 'index.json.jbuilder'
   end
 
