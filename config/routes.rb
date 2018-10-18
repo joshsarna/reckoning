@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     delete '/books/:id' => 'books#destroy'
 
     get '/appointments' => 'appointments#index'
+    get '/appointments/day/:day' => 'appointments#day' #not RESTful
     post '/appointments' => 'appointments#create'
     get '/appointments/:id' => 'appointments#show'
     patch '/appointments/:id' => 'appointments#update'

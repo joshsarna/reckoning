@@ -11,6 +11,7 @@ var HomePage = {
       newBook: {name: "", author: "", dueDate: "", pages: 0},
       newTask: {name: "", dueDate: ""},
       appointments: [],
+      appointments0: [],
       newAppointment: {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""}
     };
   },
@@ -26,6 +27,9 @@ var HomePage = {
     }.bind(this));
     axios.get('/api/appointments').then(function(response) {
       this.appointments = response.data;
+    }.bind(this));
+    axios.get('/api/appointments/day/0').then(function(response) {
+      this.appointments0 = response.data;
     }.bind(this));
   },
   methods: {
@@ -80,6 +84,7 @@ var HomePage = {
       };
       axios.post('/api/appointments', parameters).then(function(response) {
         this.newAppointment = {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""};
+        this.appointments.push(response.data);
       }.bind(this));
     }
   },

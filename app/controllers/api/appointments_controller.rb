@@ -4,6 +4,17 @@ class Api::AppointmentsController < ApplicationController
     render 'index.json.jbuilder'
   end
 
+  def day
+    all_appointments = Appointment.all
+    @appointments = []
+    all_appointments.each do |app|
+      if (app.start_time.strftime('%Y-%m-%e') == Time.now.strftime('%Y-%m-%e'))
+        @appointments << app
+      end
+    end
+    render 'index.json.jbuilder'
+  end
+
   def create
     @appointment = Appointment.new(
       name: params[:name],
