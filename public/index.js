@@ -53,7 +53,16 @@ var HomePage = {
           this.books = response.data;
         }.bind(this));
       }.bind(this));
-    }
+    },
+    finishTask: function(number) {
+      var id = number;
+      axios.patch('/api/tasks/' + id, {completed_status: true}).then(function(response) {
+        console.log(response.data);
+        axios.get('/api/tasks').then(function(response) {
+          this.tasks = response.data;
+        }.bind(this));
+      }.bind(this));
+    },
   },
   computed: {}
 };
