@@ -41,14 +41,27 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-1 black-border">Today</div>
-        <div class="col-1 black-border">Today + 1</div>
-        <div class="col-1 black-border">Today + 2</div>
-        <div class="col-1 black-border">Today + 3</div>
-        <div class="col-1 black-border">Today + 4</div>
-        <div class="col-1 black-border">Today + 5</div>
-        <div class="col-1 black-border">Today + 6</div>
-        <div class="col-2 black-border">
+        <div class="col-1 black-border">
+          <span class="bold">Today</span>
+          <hr>
+          <div v-for="appointment in appointments" class="room-below">
+            <div class="card-style">
+
+                <h6 class="card-title smaller-title less-room-below">{{ appointment.name }}</h6>
+                <p class="card-text less-room-below">Description: {{ appointment.description }}</p>
+                <p class="card-text less-room-below">Location: {{ appointment.location }}</p>
+                <p class="card-text less-room-below">Time: {{ appointment.start_time }}</p>
+              </div>
+
+          </div>
+        </div>
+        <div class="col-1 black-border bold">Today + 1</div>
+        <div class="col-1 black-border bold">Today + 2</div>
+        <div class="col-1 black-border bold">Today + 3</div>
+        <div class="col-1 black-border bold">Today + 4</div>
+        <div class="col-1 black-border bold">Today + 5</div>
+        <div class="col-1 black-border bold">Today + 6</div>
+        <div class="col-2 black-border bold">
           <span class="bold">
             Tasks Completed: {{ completeTaskCount }}
           </span>

@@ -79,8 +79,8 @@ var HomePage = {
         end_time: this.newAppointment.endDate + "T0" + this.newAppointment.endTime + ":00.007Z",
       };
       axios.post('/api/appointments', parameters).then(function(response) {
-        console.log(response.data);
-      });
+        this.newAppointment = {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""};
+      }.bind(this));
     }
   },
   computed: {}

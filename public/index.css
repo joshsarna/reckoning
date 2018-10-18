@@ -18,6 +18,32 @@
   margin-bottom: 10px;
 }
 
+.less-room-below {
+  margin-bottom: 5px;
+}
+
 .space-below {
   margin-bottom: 25px;
+}
+
+.card-style {
+  width: 100%;
+  font-size: 8pt;
+  padding: -5px;
+
+  /*position: relative;*/
+  /*display: -ms-flexbox;
+  display: flex;*/
+  /*-ms-flex-direction: column;
+  flex-direction: column;*/
+  /*min-width: 0;*/
+  /*word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;*/
+  /*border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;*/
+}
+
+.smaller-title {
+  font-size: 10pt;
 }
