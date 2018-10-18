@@ -22,6 +22,10 @@
   margin-bottom: 10px;
 }
 
+.room-above {
+  margin-top: 10px;
+}
+
 .less-room-below {
   margin-bottom: 5px;
 }
