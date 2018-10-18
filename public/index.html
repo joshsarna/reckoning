@@ -37,6 +37,10 @@
         <div class="col-1 black-border">Today + 5</div>
         <div class="col-1 black-border">Today + 6</div>
         <div class="col-2 black-border">
+          <span class="bold">
+            Tasks Completed: {{ completeTaskCount }}
+          </span>
+          <hr>
           <span class="bold">Add a New Task</span>
           <div>Title: <input type="text" v-model="newTask.name"></div>
           <div>Due Date: <input type="date" v-model="newTask.dueDate"></div>

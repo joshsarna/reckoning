@@ -6,6 +6,7 @@ var HomePage = {
     return {
       message: "Reckon",
       tasks: [],
+      completeTaskCount: 0,
       books: [],
       newBook: {name: "", author: "", dueDate: "", pages: 0},
       newTask: {name: "", dueDate: ""},
@@ -15,6 +16,9 @@ var HomePage = {
   created: function() {
     axios.get('/api/tasks').then(function(response) {
       this.tasks = response.data;
+    }.bind(this));
+    axios.get('/api/tasks/completed').then(function(response) {
+      this.completeTaskCount = response.data.count;
     }.bind(this));
     axios.get('/api/books').then(function(response) {
       this.books = response.data;
@@ -57,7 +61,7 @@ var HomePage = {
     finishTask: function(number) {
       var id = number;
       axios.patch('/api/tasks/' + id, {completed_status: true}).then(function(response) {
-        console.log(response.data);
+        this.completeTaskCount ++;
         axios.get('/api/tasks').then(function(response) {
           this.tasks = response.data;
         }.bind(this));

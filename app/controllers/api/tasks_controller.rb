@@ -4,11 +4,6 @@ class Api::TasksController < ApplicationController
     render 'index.json.jbuilder'
   end
 
-  def show
-    @task = Task.find(params[:id])
-    render 'show.json.jbuilder'
-  end
-
   def create
     @task = Task.new(
       name: params[:name],
@@ -16,6 +11,15 @@ class Api::TasksController < ApplicationController
       completed_status: false
     )
     @task.save
+    render 'show.json.jbuilder'
+  end
+
+  def completed
+    render json: { count: Task.where(completed_status: true).count }
+  end
+
+  def show
+    @task = Task.find(params[:id])
     render 'show.json.jbuilder'
   end
 
