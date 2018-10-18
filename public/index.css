@@ -10,6 +10,10 @@
   font-weight: bold;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .blue {
   color: blue;
 }
@@ -24,6 +28,10 @@
 
 .space-below {
   margin-bottom: 25px;
+}
+
+.wide-enough {
+  width: 100%;
 }
 
 .card-style {
@@ -46,4 +54,8 @@
 
 .smaller-title {
   font-size: 10pt;
+}
+
+.centered {
+  text-align: center;
 }
