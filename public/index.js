@@ -10,7 +10,8 @@ var HomePage = {
       books: [],
       newBook: {name: "", author: "", dueDate: "", pages: 0},
       newTask: {name: "", dueDate: ""},
-      appointments: []
+      appointments: [],
+      newAppointment: {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""}
     };
   },
   created: function() {
@@ -67,6 +68,20 @@ var HomePage = {
         }.bind(this));
       }.bind(this));
     },
+    addAppointment: function() {
+      console.log(this.newAppointment.startDate);
+      console.log(this.newAppointment.startTime);
+      var parameters = {
+        name: this.newAppointment.name,
+        location: this.newAppointment.location,
+        description: this.newAppointment.description,
+        start_time: this.newAppointment.startDate + "T07:" + this.newAppointment.startTime + ":00.007Z",
+        end_time: this.newAppointment.endDate + "T0" + this.newAppointment.endTime + ":00.007Z",
+      };
+      axios.post('/api/appointments', parameters).then(function(response) {
+        console.log(response.data);
+      });
+    }
   },
   computed: {}
 };

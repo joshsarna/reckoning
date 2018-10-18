@@ -26,7 +26,19 @@
 <template id="home-page">
   <div class="vue-component">
 
-    <h1 class="">{{ message }}</h1>
+    <h1>{{ message }}</h1>
+    <div class="container space-below">
+      <div>
+        Title: <input type="text" v-model="newAppointment.name"> 
+        Start: <input type="date" v-model="newAppointment.startDate"><input type="time" v-model="newAppointment.startTime"> 
+        End: <input type="date" v-model="newAppointment.endDate"><input type="time" v-model="newAppointment.endTime">
+      </div>
+      <div>
+        Location: <input type="text" v-model="newAppointment.location"> 
+        Description: <input type="text" v-model="newAppointment.description">
+        <input type="submit" value="Add New Appointment" v-on:click="addAppointment">
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-1 black-border">Today</div>
