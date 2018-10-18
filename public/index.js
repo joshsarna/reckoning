@@ -19,8 +19,7 @@ var HomePage = {
         "Wed.",
         "Thurs.",
         "Fri.",
-        "Sat.",
-        "Sun."
+        "Sat."
       ],
       day: 0,
       tasks: [],
