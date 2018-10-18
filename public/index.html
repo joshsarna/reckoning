@@ -42,7 +42,7 @@
     <div class="container">
       <div class="row">
         <div class="col-1 black-border">
-          <span class="bold">Today</span>
+          <span class="bold">{{ days[day] }}</span>
           <hr>
           <div v-for="appointment in appointments0" class="room-below">
             <div class="card-style">
@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="col-1 black-border">
-          <span class="bold">Today + 1</span>
+          <span class="bold">{{ days[day + 1] }}</span>
           <hr>
           <div v-for="appointment in appointments1" class="room-below">
             <div class="card-style">
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class="col-1 black-border">
-          <span class="bold">Today + 2</span>
+          <span class="bold">{{ days[day + 2] }}</span>
           <hr>
           <div v-for="appointment in appointments2" class="room-below">
             <div class="card-style">
@@ -78,7 +78,7 @@
           </div>
         </div>
         <div class="col-1 black-border">
-          <span class="bold">Today + 3</span>
+          <span class="bold">{{ days[day + 3] }}</span>
           <hr>
           <div v-for="appointment in appointments3" class="room-below">
             <div class="card-style">
@@ -90,7 +90,7 @@
           </div>
         </div>
         <div class="col-1 black-border">
-          <span class="bold">Today + 4</span>
+          <span class="bold">{{ days[day + 4] }}</span>
           <hr>
           <div v-for="appointment in appointments4" class="room-below">
             <div class="card-style">
@@ -102,7 +102,7 @@
           </div>
         </div>
         <div class="col-1 black-border">
-          <span class="bold">Today + 5</span>
+          <span class="bold">{{ days[day + 5] }}</span>
           <hr>
           <div v-for="appointment in appointments5" class="room-below">
             <div class="card-style">
@@ -114,7 +114,7 @@
           </div>
         </div>
         <div class="col-1 black-border">
-          <span class="bold">Today + 6</span>
+          <span class="bold">{{ days[day + 6] }}</span>
           <hr>
           <div v-for="appointment in appointments6" class="room-below">
             <div class="card-style">
@@ -125,7 +125,7 @@
             </div>
           </div>
         </div>
-        <div class="col-2 black-border bold">
+        <div class="col-2 black-border">
           <span class="bold">
             Tasks Completed: {{ completeTaskCount }}
           </span>

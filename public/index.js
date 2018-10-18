@@ -5,12 +5,29 @@ var HomePage = {
   data: function() {
     return {
       message: "Reckon",
+      days: [
+        null,
+        "Mon.",
+        "Tues.",
+        "Wed.",
+        "Thurs.",
+        "Fri.",
+        "Sat.",
+        "Sun.",
+        "Mon.",
+        "Tues.",
+        "Wed.",
+        "Thurs.",
+        "Fri.",
+        "Sat.",
+        "Sun."
+      ],
+      day: 0,
       tasks: [],
       completeTaskCount: 0,
       books: [],
       newBook: {name: "", author: "", dueDate: "", pages: 0},
       newTask: {name: "", dueDate: ""},
-      appointments: [],
       appointments0: [],
       appointments1: [],
       appointments2: [],
@@ -22,6 +39,9 @@ var HomePage = {
     };
   },
   created: function() {
+    var date = new Date;
+    this.day = date.getDay();
+    console.log(this.day);
     axios.get('/api/tasks').then(function(response) {
       this.tasks = response.data;
     }.bind(this));
@@ -31,9 +51,7 @@ var HomePage = {
     axios.get('/api/books').then(function(response) {
       this.books = response.data;
     }.bind(this));
-    axios.get('/api/appointments').then(function(response) {
-      this.appointments = response.data;
-    }.bind(this));
+    
     axios.get('/api/appointments/day/0').then(function(response) {
       this.appointments0 = response.data;
     }.bind(this));
@@ -97,8 +115,6 @@ var HomePage = {
       }.bind(this));
     },
     addAppointment: function() {
-      console.log(this.newAppointment.startDate);
-      console.log(this.newAppointment.startTime);
       var parameters = {
         name: this.newAppointment.name,
         location: this.newAppointment.location,
