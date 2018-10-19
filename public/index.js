@@ -5,7 +5,7 @@ var LogoutPage = {
   created: function() {
     axios.defaults.headers.common["Authorization"] = undefined;
     localStorage.removeItem("jwt");
-    router.push("/");
+    router.push("/login");
   }
 };
 
@@ -113,39 +113,45 @@ var HomePage = {
     };
   },
   created: function() {
-    var date = new Date;
-    this.day = date.getDay();
-    console.log(this.day);
-    axios.get('/api/tasks').then(function(response) {
-      this.tasks = response.data;
-    }.bind(this));
-    axios.get('/api/tasks/completed').then(function(response) {
-      this.completeTaskCount = response.data.count;
-    }.bind(this));
-    axios.get('/api/books').then(function(response) {
-      this.books = response.data;
-    }.bind(this));
-    
-    axios.get('/api/appointments/day/0').then(function(response) {
-      this.appointments0 = response.data;
-    }.bind(this));
-    axios.get('/api/appointments/day/1').then(function(response) {
-      this.appointments1 = response.data;
-    }.bind(this));
-    axios.get('/api/appointments/day/2').then(function(response) {
-      this.appointments2 = response.data;
-    }.bind(this));
-    axios.get('/api/appointments/day/3').then(function(response) {
-      this.appointments3 = response.data;
-    }.bind(this));
-    axios.get('/api/appointments/day/4').then(function(response) {
-      this.appointments4 = response.data;
-    }.bind(this));
-    axios.get('/api/appointments/day/5').then(function(response) {
-      this.appointments5 = response.data;
-    }.bind(this));
-    axios.get('/api/appointments/day/6').then(function(response) {
-      this.appointments6 = response.data;
+    axios.get('/api/log').then(function(response) {
+      if (response.data.status) {
+        var date = new Date;
+        this.day = date.getDay();
+        axios.get('/api/tasks').then(function(response) {
+          this.tasks = response.data;
+        }.bind(this));
+        axios.get('/api/tasks/completed').then(function(response) {
+          this.completeTaskCount = response.data.count;
+          console.log(response.data);
+        }.bind(this));
+        axios.get('/api/books').then(function(response) {
+          this.books = response.data;
+        }.bind(this));
+        
+        axios.get('/api/appointments/day/0').then(function(response) {
+          this.appointments0 = response.data;
+        }.bind(this));
+        axios.get('/api/appointments/day/1').then(function(response) {
+          this.appointments1 = response.data;
+        }.bind(this));
+        axios.get('/api/appointments/day/2').then(function(response) {
+          this.appointments2 = response.data;
+        }.bind(this));
+        axios.get('/api/appointments/day/3').then(function(response) {
+          this.appointments3 = response.data;
+        }.bind(this));
+        axios.get('/api/appointments/day/4').then(function(response) {
+          this.appointments4 = response.data;
+        }.bind(this));
+        axios.get('/api/appointments/day/5').then(function(response) {
+          this.appointments5 = response.data;
+        }.bind(this));
+        axios.get('/api/appointments/day/6').then(function(response) {
+          this.appointments6 = response.data;
+        }.bind(this));
+      } else {
+        router.push('/login');
+      }
     }.bind(this));
   },
   methods: {

@@ -1,6 +1,6 @@
 class Api::TasksController < ApplicationController
   def index
-    @tasks = Task.where(completed_status: false)
+    @tasks = Task.where(user_id: current_user.id, completed_status: false)
     render 'index.json.jbuilder'
   end
 
@@ -8,14 +8,15 @@ class Api::TasksController < ApplicationController
     @task = Task.new(
       name: params[:name],
       due_date: params[:due_date],
-      completed_status: false
+      completed_status: false,
+      user_id: current_user.id
     )
     @task.save
     render 'show.json.jbuilder'
   end
 
   def completed
-    render json: { count: Task.where(completed_status: true).count }
+    render json: { count: Task.where(user_id: current_user.id, completed_status: true).count }
   end
 
   def show

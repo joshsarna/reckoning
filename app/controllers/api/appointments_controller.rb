@@ -1,11 +1,11 @@
 class Api::AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.all
+    @appointments = Appointment.where(user_id: current_user.id)
     render 'index.json.jbuilder'
   end
 
   def day
-    all_appointments = Appointment.all
+    all_appointments = Appointment.where(user_id: current_user.id)
     @appointments = []
     seconds_per_day = 24*60*60
     total_seconds_offset = seconds_per_day * params[:day].to_i

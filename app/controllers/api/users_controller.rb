@@ -1,4 +1,8 @@
 class Api::UsersController < ApplicationController
+  def log
+    render json: { status: !!current_user }
+  end
+
   def create
     @user = User.new(
       name: params[:name],
