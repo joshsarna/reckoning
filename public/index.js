@@ -38,6 +38,9 @@ var LoginPage = {
             this.password = "";
           }.bind(this)
         );
+    },
+    signUp: function() {
+      router.push('/signup');
     }
   }
 };

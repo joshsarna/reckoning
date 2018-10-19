@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
       )
       render json: {jwt: jwt, email: user.email}, status: :created
     else
-      render json: {}
+      render json: { errors: @place.errors.full_messages }, status: :bad_request
     end
   end
 end
