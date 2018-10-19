@@ -125,7 +125,6 @@ var HomePage = {
         }.bind(this));
         axios.get('/api/tasks/completed').then(function(response) {
           this.completeTaskCount = response.data.count;
-          console.log(response.data);
         }.bind(this));
         axios.get('/api/books').then(function(response) {
           this.books = response.data;
