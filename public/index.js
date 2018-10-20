@@ -112,7 +112,8 @@ var HomePage = {
       appointments4: [],
       appointments5: [],
       appointments6: [],
-      newAppointment: {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""}
+      newAppointment: {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""},
+      selectedAppointment: {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""}
     };
   },
   created: function() {
@@ -208,6 +209,9 @@ var HomePage = {
         this.newAppointment = {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""};
         this.appointments.push(response.data);
       }.bind(this));
+    },
+    selectAppointment: function(inputAppointment) {
+      this.selectedAppointment = inputAppointment;
     }
   },
   computed: {}

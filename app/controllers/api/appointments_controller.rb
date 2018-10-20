@@ -23,7 +23,8 @@ class Api::AppointmentsController < ApplicationController
       description: params[:description],
       start_time: params[:start_time],
       end_time: params[:end_time],
-      location: params[:location]
+      location: params[:location],
+      user_id: current_user.id
     )
     @appointment.save
     render 'show.json.jbuilder'

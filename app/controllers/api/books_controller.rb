@@ -11,7 +11,8 @@ class Api::BooksController < ApplicationController
       author: params[:author],
       pages: params[:pages],
       due_date: params[:due_date],
-      completed_status: false
+      completed_status: false,
+      user_id: current_user.id
     )
     @book.save
     render 'show.json.jbuilder'
