@@ -84,7 +84,7 @@ var HomePage = {
     return {
       message: "Reckon",
       days: [
-        null,
+        "Sun.",
         "Mon.",
         "Tues.",
         "Wed.",
@@ -96,8 +96,7 @@ var HomePage = {
         "Tues.",
         "Wed.",
         "Thurs.",
-        "Fri.",
-        "Sat."
+        "Fri."
       ],
       day: 0,
       tasks: [],
