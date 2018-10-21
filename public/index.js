@@ -113,7 +113,7 @@ var HomePage = {
       appointments5: [],
       appointments6: [],
       newAppointment: {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""},
-      selectedAppointment: {name: "", startTime: "", startDate: "", endTime: "", endDate: "", location: "", description: ""}
+      selectedAppointment: {id: "", name: "", start_time: "", end_time: "", location: "", description: "", friendly_time: ""}
     };
   },
   created: function() {
@@ -212,6 +212,17 @@ var HomePage = {
     },
     selectAppointment: function(inputAppointment) {
       this.selectedAppointment = inputAppointment;
+    },
+    updateAppointment: function() {
+      var parameters = {
+        name: this.selectedAppointment.name,
+        description: this.selectedAppointment.description,
+        location: this.selectedAppointment.location,
+        start_time: this.selectedAppointment.start_time,
+        end_time: this.selectedAppointment.end_time
+      };
+      axios.patch('/api/appointments/' + this.selectedAppointment.id, parameters).then(function(response) {
+      });
     }
   },
   computed: {}
