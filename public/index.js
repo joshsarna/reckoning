@@ -221,8 +221,10 @@ var HomePage = {
         start_time: this.selectedAppointment.start_time,
         end_time: this.selectedAppointment.end_time
       };
-      axios.patch('/api/appointments/' + this.selectedAppointment.id, parameters).then(function(response) {
-      });
+      axios.patch('/api/appointments/' + this.selectedAppointment.id, parameters);
+    },
+    deleteAppointment: function() {
+      axios.delete('/api/appointments/' + this.selectedAppointment.id);
     }
   },
   computed: {}

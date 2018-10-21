@@ -199,7 +199,8 @@
                 <p>End Time: <input type="text" v-model="selectedAppointment.end_time"></p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" v-on:click="updateAppointment()" data-dismiss="modal">Save changes</button>
+                <button type="button" class="btn btn-primary" v-on:click="deleteAppointment()" data-dismiss="modal">Delete Appointment</button>
+                <button type="button" class="btn btn-primary" v-on:click="updateAppointment()" data-dismiss="modal">Save Changes</button>
               </div>
             </div>
           </div>
