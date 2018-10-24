@@ -91,7 +91,7 @@
           </div>
         </div>
         <div class="col-1 black-border"> <!-- 2 -->
-          <span class="bold">{{ days[day + 1] }}</span>
+          <span class="bold">{{ days[(day + 1)%7] }}</span>
           <hr>
           <div v-for="appointment in orderBy(appointments1, 'start_time')" class="room-below">
             <div class="card-style">
@@ -106,7 +106,7 @@
           </div>
         </div>
         <div class="col-1 black-border"> <!-- 3 -->
-          <span class="bold">{{ days[day + 2] }}</span>
+          <span class="bold">{{ days[(day + 2)%7] }}</span>
           <hr>
           <div v-for="appointment in orderBy(appointments2, 'start_time')" class="room-below">
             <div class="card-style">
@@ -121,7 +121,7 @@
           </div>
         </div>
         <div class="col-1 black-border"> <!-- 4 -->
-          <span class="bold">{{ days[day + 3] }}</span>
+          <span class="bold">{{ days[(day + 3)%7] }}</span>
           <hr>
           <div v-for="appointment in orderBy(appointments3, 'start_time')" class="room-below">
             <div class="card-style">
@@ -136,7 +136,7 @@
           </div>
         </div>
         <div class="col-1 black-border"> <!-- 5 -->
-          <span class="bold">{{ days[day + 4] }}</span>
+          <span class="bold">{{ days[(day + 4)%7] }}</span>
           <hr>
           <div v-for="appointment in orderBy(appointments4, 'start_time')" class="room-below">
             <div class="card-style">
@@ -151,7 +151,7 @@
           </div>
         </div>
         <div class="col-1 black-border"> <!-- 6 -->
-          <span class="bold">{{ days[day + 5] }}</span>
+          <span class="bold">{{ days[(day + 5)%7] }}</span>
           <hr>
           <div v-for="appointment in orderBy(appointments5, 'start_time')" class="room-below">
             <div class="card-style">
@@ -166,7 +166,7 @@
           </div>
         </div>
         <div class="col-1 black-border"> <!-- 7 -->
-          <span class="bold">{{ days[day + 6] }}</span>
+          <span class="bold">{{ days[(day + 6)%7] }}</span>
           <hr>
           <div v-for="appointment in orderBy(appointments6, 'start_time')" class="room-below">
             <div class="card-style">

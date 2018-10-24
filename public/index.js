@@ -90,13 +90,7 @@ var HomePage = {
         "Wed.",
         "Thurs.",
         "Fri.",
-        "Sat.",
-        "Sun.",
-        "Mon.",
-        "Tues.",
-        "Wed.",
-        "Thurs.",
-        "Fri."
+        "Sat."
       ],
       day: 0,
       tasks: [],
@@ -119,7 +113,7 @@ var HomePage = {
     axios.get('/api/log').then(function(response) {
       if (response.data.status) {
         var date = new Date;
-        this.day = date.getDay();
+        this.day = date.getDay() % 7;
         axios.get('/api/tasks').then(function(response) {
           this.tasks = response.data;
         }.bind(this));
