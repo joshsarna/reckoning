@@ -5,7 +5,9 @@ var ProjectPage = {
   data: function() {
     return {
       message: "Projects Page",
-      projects: []
+      projects: [],
+      onClock: false,
+      currentShift: 0
     };
   },
   created: function() {
@@ -14,7 +16,31 @@ var ProjectPage = {
       console.log(this.projects);
     }.bind(this));
   },
-  methods: {},
+  methods: {
+    startShift: function(project) {
+      if (this.onClock) {
+        axios.patch('/api/shifts/' + this.currentShift
+        ).then(function(response) {
+          console.log('just ended a shift');
+        }.bind(this));
+      } else {
+        axios.post('/api/shifts',
+          {project_id: project.id}
+        ).then(function(response) {
+          console.log('just started a shift');
+          this.currentShift = response.data.id;
+          this.projects.find(function(element) {
+            return element['id'] = project.id;
+          }).shifts.push(response.data);
+          console.log(this.projects.find(function(element) {
+            return element['id'] = project.id;
+          }).shifts);
+        }.bind(this));
+      }
+      this.onClock = !this.onClock;
+      console.log('on clock: ' + this.onClock);
+    }
+  },
   computed: {}
 };
 

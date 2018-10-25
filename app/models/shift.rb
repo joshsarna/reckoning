@@ -8,10 +8,18 @@ class Shift < ApplicationRecord
 
   def friendly_end_time
     time_zone_correction = 25200
-    (end_time - time_zone_correction).strftime('%I:%M %p')
+    if !end_time
+      return end_time
+    else
+      return (end_time - time_zone_correction).strftime('%I:%M %p')
+    end
   end
 
   def friendly_total_time
-    (end_time - start_time) / 3600
+    if !end_time
+      return nil
+    else
+      return (end_time - start_time) / 3600
+    end
   end
 end

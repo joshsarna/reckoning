@@ -13,8 +13,10 @@ class Api::ShiftsController < ApplicationController
   def update
     @shift = Shift.find(params[:id])
     @shift.update(
-      end_time: Time.now,
-      total_time: friendly_total_time
+      end_time: Time.now
+    )
+    @shift.update(
+      total_time: (@shift.end_time - @shift.start_time) / 3600
     )
     render 'show.json.jbuilder'
   end

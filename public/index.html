@@ -22,10 +22,10 @@
       <ul class="navbar-nav mr-auto">
         <!-- <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
         </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/#/projects">Projects</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             User
@@ -308,14 +308,18 @@
     <div class="container room-above">
       <div class="row">
         <div v-for="project in projects" class="col">
-          <span class="bold">
+          <div class="bold space-below">
             {{ project.client_name }}
-          </span>
+          </div>
+          <div>
+            <button v-on:click="startShift(project)">Start/Stop Shift</button>
+            <hr>
+          </div>
           <div>
             Start ------ End ------- Duration
           </div>
           <hr>
-          <div v-for="shift in project.friendly_shifts">
+          <div v-for="shift in orderBy(project.friendly_shifts, 'start')">
             {{ shift.start }} ....
             {{ shift.end }} ....
             {{ shift.total_time }}
