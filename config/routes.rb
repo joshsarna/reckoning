@@ -23,6 +23,9 @@ Rails.application.routes.draw do
     patch '/appointments/:id' => 'appointments#update'
     delete '/appointments/:id' => 'appointments#destroy'
 
+    post '/shifts' => 'shifts#create'
+    patch '/shifts/:id' => 'shifts#update'
+
     get '/log' => 'users#log'
     post '/users' => 'users#create'
     post '/sessions' => 'sessions#create'
