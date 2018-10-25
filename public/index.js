@@ -13,7 +13,12 @@ var ProjectPage = {
   created: function() {
     axios.get('/api/projects').then(function(response) {
       this.projects = response.data;
-      console.log(this.projects);
+      for (var i = 0; i < this.projects.length; i++ ) {
+        if (this.projects[i].shifts[0] && !this.projects[i].shifts[this.projects[i].shifts.length - 1].end_time) {
+          this.onClock = true;
+          this.currentShift = this.projects[i].shifts[this.projects[i].shifts.length - 1].id;
+        }
+      }
     }.bind(this));
   },
   methods: {

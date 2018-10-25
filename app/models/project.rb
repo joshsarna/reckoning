@@ -3,6 +3,7 @@ class Project < ApplicationRecord
   has_many :shifts
 
   def friendly_shifts
-    shifts.map{ | shift | {id: shift.id, start: shift.friendly_start_time, end: shift.friendly_end_time, total_time: (shift.end_time - shift.start_time) / 3600 } }
+    shifts.map{ | shift | {id: shift.id, start: shift.friendly_start_time, end: shift.friendly_end_time }
+    }
   end
 end
