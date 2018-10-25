@@ -6,3 +6,4 @@ json.updated_at project.updated_at
 
 json.user project.user
 json.shifts project.shifts
+json.friendly_shifts project.friendly_shifts
