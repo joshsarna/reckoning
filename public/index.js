@@ -1,5 +1,23 @@
 /* global Vue, VueRouter, axios */
 
+var ProjectPage = {
+  template: "#project-page",
+  data: function() {
+    return {
+      message: "Projects Page",
+      projects: []
+    };
+  },
+  created: function() {
+    axios.get('/api/projects').then(function(response) {
+      this.projects = response.data;
+      console.log(this.projects);
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
 var LogoutPage = {
   template: "<h1>Logout</h1>",
   created: function() {
@@ -228,7 +246,8 @@ var router = new VueRouter({
     { path: "/", component: HomePage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
-    { path: "/logout", component: LogoutPage }
+    { path: "/logout", component: LogoutPage },
+    { path: "/projects", component: ProjectPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
