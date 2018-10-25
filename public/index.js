@@ -21,6 +21,7 @@ var ProjectPage = {
       }
     }.bind(this));
   },
+  // NOTE: Duration is not loading correctly - this is something to work on when you resume
   methods: {
     startShift: function(project) {
       if (this.onClock) {
