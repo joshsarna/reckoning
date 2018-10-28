@@ -3,7 +3,7 @@ class Shift < ApplicationRecord
 
   def friendly_start_time
     time_zone_correction = 25200
-    (start_time - time_zone_correction).strftime('%I:%M %p')
+    (start_time - time_zone_correction).strftime('%m/%d/%y %I:%M %p')
   end
 
   def friendly_end_time

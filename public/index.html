@@ -307,7 +307,7 @@
 
     <div class="container room-above">
       <div class="row">
-        <div v-for="project in projects" class="col">
+        <div v-for="project in projects" class="col-md-4">
           <div class="bold space-below">
             {{ project.client_name }}
           </div>
@@ -316,7 +316,7 @@
             <hr>
           </div>
           <div>
-            Start ------ End ------- Duration
+            Date ---- Start ------ End ------- Duration
           </div>
           <hr>
           <div v-for="shift in orderBy(project.friendly_shifts, 'start')">

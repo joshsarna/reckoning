@@ -13,6 +13,7 @@ var ProjectPage = {
   created: function() {
     axios.get('/api/projects').then(function(response) {
       this.projects = response.data;
+      console.log(this.projects);
       for (var i = 0; i < this.projects.length; i++ ) {
         if (this.projects[i].shifts[0] && !this.projects[i].shifts[this.projects[i].shifts.length - 1].end_time) {
           this.onClock = true;
@@ -27,17 +28,16 @@ var ProjectPage = {
       if (this.onClock) {
         axios.patch('/api/shifts/' + this.currentShift
         ).then(function(response) {
-          console.log('just ended a shift');
         }.bind(this));
       } else {
         axios.post('/api/shifts',
           {project_id: project.id}
         ).then(function(response) {
-          console.log('just started a shift');
           this.currentShift = response.data.id;
           this.projects.find(function(element) {
             return element['id'] = project.id;
           }).shifts.push(response.data);
+          // this.projects.find(element => element['id'] = project.id).shifts.push(response.data);
           console.log(this.projects.find(function(element) {
             return element['id'] = project.id;
           }).shifts);
