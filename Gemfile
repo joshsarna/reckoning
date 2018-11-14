@@ -51,3 +51,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'unirest'
 gem "rest-client", ">= 1.8.0"
+gem "loofah", ">= 2.2.3"
