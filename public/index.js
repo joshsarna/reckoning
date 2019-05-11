@@ -1,4 +1,4 @@
-/* global Vue, VueRouter, axios */
+/* global Vue, VueRouter, axios, Vue2Filters */
 
 var ProjectPage = {
   template: "#project-page",
@@ -130,6 +130,7 @@ var SignupPage = {
 
 var HomePage = {
   template: "#home-page",
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       message: "Reckon",
@@ -287,6 +288,7 @@ var router = new VueRouter({
 });
 
 var app = new Vue({
+  mixins: [Vue2Filters.mixin],
   el: "#vue-app",
   router: router,
   created: function() {
